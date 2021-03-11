@@ -2,13 +2,17 @@
     background-color: rebeccapurple;
     color: palevioletred;
     text-align: center;
-  margin-left: 170px;
-  margin-right: 170px;
+  margin-left: 40%;
+  margin-right: 40%;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  border-radius: 100%;
 }
 
 #rgb-color{
     text-align: center;
+    text-decoration-line:overline;
+    text-decoration-color:palevioletred;
+    text-decoration-style: wavy;
 }
 
 #balls{
@@ -20,4 +24,13 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
+}
+
+#answer{
+    color: palevioletred;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  border-radius: 100%;
 }

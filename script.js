@@ -1,6 +1,5 @@
 window.onload = function (){
-// ADD RGB ALEATORIO rgb-color
-let h2 = document.getElementById('rgb-color');
+// CRIA RGB ALEATORIO
 function rndRGB() {
     let str = 'rgb(';
     for(let i = 0; i < 3; i++){
@@ -13,11 +12,17 @@ function rndRGB() {
     str += ')';
     return (str);
 }
-h2.innerHTML = rndRGB();
+
+//APLICA RGB NO H2
+function addTXT (){
+    let h2 = document.getElementById('rgb-color');
+    h2.innerHTML = rndRGB();
+}
+addTXT();
 
 
 // ADD CORES ALEATORIAS PARA BOLAS E A COR DO H2 PARA UMA DAS BOLAS ALEATORIAMENTE
-    function addCorBalls(h2) {
+    function addCorBalls() {
         let div = document.getElementById('balls');
         for(let i = 0; i < div.children.length; i++){
             let ball = div.children[i];
@@ -25,14 +30,31 @@ h2.innerHTML = rndRGB();
         }
         let num = Math.floor(Math.random()*(div.children.length));
         ball = div.children[num];
-        ball.style.backgroundColor = h2.innerHTML;
+        ball.style.backgroundColor = document.getElementById('rgb-color').innerHTML;
         
     }
-addCorBalls (h2);
+addCorBalls ();
+
+// ADD EVENT LISTENER NAS BOLAS
+let divBalls = document.getElementById('balls');
+for(let i = 0; i < divBalls.children.length; i++){
+    divBalls.children[i].addEventListener('click', acerto);
+}
+function acerto(ballEmQuestao) {
+    console.log(ballEmQuestao.target);
+    if((document.getElementById('rgb-color').innerHTML) == (ballEmQuestao.target.style.backgroundColor)){
+        let txtAcerto = document.getElementById('answer');
+        txtAcerto.innerHTML = 'Acertou!';
+    }else{
+        let txtAcerto = document.getElementById('answer');
+        txtAcerto.innerHTML = 'Errou! Tente novamente!';
+    }
+}
 
 
-
-
+//TEXTO DE ACERTO
+let txtAcerto = document.getElementById('answer');
+txtAcerto.innerHTML = 'Escolha uma Cor:';
 
 
 
