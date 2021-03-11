@@ -3,6 +3,7 @@ const rgbToGuess = document.querySelector('#rgb-color');
 const rgbBalls = document.querySelectorAll('.ball');
 const answerText = document.querySelector('#answer');
 const resetBtn = document.querySelector('#reset-game');
+const scoreCount = document.querySelector('#score');
 
 // Functions
 
@@ -18,6 +19,11 @@ const generateRandomRgb = () => {
   }
 };
 
+const gotRight = () => {
+  const newScore = Number(scoreCount.innerText) + 3;
+  scoreCount.innerText = newScore;
+};
+
 //                      Listeners
 
 // set rgbBall listener
@@ -28,6 +34,7 @@ const setRgbBall = () => {
       const colorToGuess = `rgb${rgbToGuess.innerText}`;
       if (colorToGuess === currentBallColor) {
         answerText.innerText = 'Acertou!';
+        gotRight();
       } else {
         answerText.innerText = 'Errou! Tente novamente!';
       }
