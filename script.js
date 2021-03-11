@@ -15,3 +15,5 @@ function rndRGB() {
 }
 h2.innerHTML = rndRGB();
 }
+
+//
