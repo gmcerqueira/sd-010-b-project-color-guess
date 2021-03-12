@@ -14,7 +14,7 @@ function createColorBalls(numberOfColors) {
   for (let i = 0; i < numberOfColors; i += 1) {
     const ball = document.createElement('div');
     ball.className = 'ball';
-    ball.style.backgroundColor = `rgb + ${randomColor()}`;
+    ball.style.backgroundColor = `rgb${randomColor()}`;
     colorsContainer.appendChild(ball);
   }
 }
