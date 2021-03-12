@@ -8,14 +8,17 @@ const scoreCount = document.querySelector('#score');
 // Functions
 
 const generateRandomRgb = () => {
+  const randomIndex = (Math.floor(Math.random() * 6));
   for (let index = 0; index < 6; index += 1) {
     const r = Math.floor(Math.random() * 255);
     const g = Math.floor(Math.random() * 255);
     const b = Math.floor(Math.random() * 255);
-    if (index === 0) {
+    if (index === randomIndex) {
       rgbToGuess.innerText = `(${r}, ${g}, ${b})`;
+      rgbBalls[index].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    } else {
+      rgbBalls[index].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     }
-    rgbBalls[index].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
   }
 };
 
