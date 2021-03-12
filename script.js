@@ -54,7 +54,7 @@ function acerto(ballEmQuestao) {
 
 //TEXTO DE ACERTO
 let txtAcerto = document.getElementById('answer');
-txtAcerto.innerHTML = 'Escolha uma Cor:';
+txtAcerto.innerHTML = 'Escolha uma cor:';
 
 
 
