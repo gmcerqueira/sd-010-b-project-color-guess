@@ -2,6 +2,8 @@ const colorAnswer = document.querySelector('#rgb-color');
 const colorsContainer = document.querySelector('#colors-container');
 const answerText = document.querySelector('#answer');
 const resetBtn = document.querySelector('#reset-game');
+const score = document.querySelector('#score');
+let points = 0;
 
 // Cria cor aleatória
 function randomColor() {
@@ -12,12 +14,15 @@ function randomColor() {
   return `(${r}, ${g}, ${b})`;
 }
 
-// Verifica se a resposta está correta
+// Verifica se a resposta está correta e marca a pontuação
 function rightGuess(event) {
   const guess = event.target.id;
   const check = guess === 'rightAnswer';
-  if (check) answerText.innerHTML = 'Acertou!';
-  else answerText.innerHTML = 'Errou! Tente novamente!';
+  if (check) {
+    answerText.innerHTML = 'Acertou!';
+    points += 3;
+    score.innerHTML = points;
+  } else answerText.innerHTML = 'Errou! Tente novamente!';
 }
 
 // Cria opções de cores
@@ -41,6 +46,7 @@ function selectingAnswer() {
   colorAnswer.innerHTML = colors[randomIndex].slice(3);
 }
 
+// Reinicia as cores e resposta correta
 function resetGame() {
   colorsContainer.innerHTML = '';
   createColorBalls(6);
