@@ -23,8 +23,19 @@ function requisito3() {
   }
 }
 
+function requisito4() {
+  for (let x = 0; x < 6; x += 1) {
+    let numAleatorio = Math.ceil((Math.random() * (255 - 0) + 0));
+    let numAleatorio2 = Math.ceil((Math.random() * (255 - 0) + 0));
+    let numAleatorio3 = Math.ceil((Math.random() * (255 - 0) + 0));
+    let rgbValue = `rgb(${numAleatorio},${numAleatorio2},${numAleatorio3})`;
+    document.getElementsByClassName('ball')[x].style.backgroundColor = rgbValue;
+  }
+}
+
 window.onload = function init() {
   requisito1();
   requisito2();
   requisito3();
+  requisito4();
 };
