@@ -23,11 +23,19 @@ geraPaleta();
 chosenBall = document.getElementById('color-palette');
 chosenBall.addEventListener('click', function (event) {
   const selectedBall = event.target;
-  const selectedColor = selectedBall.style.background;
+  const selectedColor = selectedBall.style.backgroundColor;
   const colorBall = `rgb${adivinha.innerText}`;
   if (selectedColor === colorBall) {
     resposta.innerText = 'Acertou!';
+    incrementaPlacar();
   } else {
     resposta.innerText = 'Errou! Tente novamente!';
   }
 });
+
+function incrementaPlacar() {
+  const placar = score.innerText + 3;
+  score.innerText = placar;
+};
+
+
