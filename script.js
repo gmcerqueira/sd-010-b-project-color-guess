@@ -19,3 +19,15 @@ function geraPaleta() {
   }
 };
 geraPaleta();
+
+chosenBall = document.getElementById('color-palette');
+chosenBall.addEventListener('click', function (event) {
+  const selectedBall = event.target;
+  const selectedColor = selectedBall.style.background;
+  const colorBall = `rgb${adivinha.innerText}`;
+  if (selectedColor === colorBall) {
+    resposta.innerText = 'Acertou!';
+  } else {
+    resposta.innerText = 'Errou! Tente novamente!';
+  }
+});
