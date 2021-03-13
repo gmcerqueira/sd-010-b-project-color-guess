@@ -14,7 +14,7 @@ button {
   width: 416px;
 }
 
-#output , #button {
+#output , #button , #placar {
   display: block;
   margin: auto;
   width: fit-content;

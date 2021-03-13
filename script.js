@@ -1,5 +1,6 @@
 let ballNumber = '';
 let correctValue = '';
+let score = 0;
 
 function generateNumber() {
   const number = Math.ceil(Math.random() * 255);
@@ -49,8 +50,11 @@ document.getElementById('colors-guess').addEventListener('click', (event) => {
   const clickedBall = event.target;
   const chosenColor = clickedBall.style.background;
   const result = document.getElementById('answer');
+  const scoreText = document.getElementById('score');
   if (chosenColor === correctValue) {
     result.innerText = 'Acertou!';
+    score += 3;
+    scoreText.innerText = score;
   } else {
     result.innerText = 'Errou! Tente novamente!';
   }
