@@ -57,6 +57,7 @@ function resetGame() {
     colorCircles();
     getRgbNumber();
     document.getElementById('rightColor').id = '';
+    document.querySelector('#answer').innerText = 'Escolha uma cor'
     chooseRandomCircle();
   });
 }
