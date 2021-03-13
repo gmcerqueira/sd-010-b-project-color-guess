@@ -1,5 +1,5 @@
 const balls = document.getElementsByClassName('ball');
-const getP = document.querySelector('#result');
+const getP = document.querySelector('#answer');
 const getButton = document.querySelector('button');
 let rgbNumber = '';
 
@@ -28,14 +28,14 @@ function colorCircles() {
 
 function chooseRandomCircle() {
   const chooseCircle = (Math.ceil(Math.random() * (5 - 0) + 0));
-  balls[chooseCircle].id = 'answer';
+  balls[chooseCircle].id = 'rightColor';
 }
 
 function getRgbNumber() {
   let rgbText = '';
-  const answer = document.getElementById('answer');
-  for (let counter = 3; counter < answer.style.backgroundColor.length; counter += 1) {
-    rgbText += answer.style.backgroundColor[counter];
+  const rightColor = document.getElementById('rightColor');
+  for (let counter = 3; counter < rightColor.style.backgroundColor.length; counter += 1) {
+    rgbText += rightColor.style.backgroundColor[counter];
   }
   document.querySelector('p').innerText = rgbText;
 }
@@ -43,8 +43,8 @@ function getRgbNumber() {
 function correctOrNot() {
   document.getElementById('circle-container').addEventListener('click', (event) => {
     const eventTargetColor = event.target.style.backgroundColor;
-    const answerColor = document.getElementById('answer').style.backgroundColor;
-    if (eventTargetColor === answerColor) {
+    const rightColor = document.getElementById('rightColor').style.backgroundColor;
+    if (eventTargetColor === rightColor) {
       getP.innerText = 'Acertou!';
     } else {
       getP.innerText = 'Errou! Tente novamente!';
@@ -56,7 +56,7 @@ function resetGame() {
   getButton.addEventListener('click', () => {
     colorCircles();
     getRgbNumber();
-    document.getElementById('answer').id = '';
+    document.getElementById('rightColor').id = '';
     chooseRandomCircle();
   });
 }
