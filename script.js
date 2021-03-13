@@ -23,10 +23,10 @@ corBolas();
 let contador = 0;
 
 function clicarCorCerta() {
-    let bolaCerta = bolas[parseInt(Math.random() * bolas.length)];
-    let aCor = window.getComputedStyle(bolaCerta).backgroundColor;
-    p.innerHTML = aCor.replace('rgb', '');
-  for (let index = 0; index < bolas.length; index += 1){
+  let bolaCerta = bolas[parseInt(Math.random() * bolas.length)];
+  let aCor = window.getComputedStyle(bolaCerta).backgroundColor;
+  p.innerHTML = aCor.replace('rgb', '');
+  for (let index = 0; index < bolas.length; index += 1) {
     bolas[index].addEventListener('click', function () {
       let ball = window.getComputedStyle(bolas[index]).backgroundColor;
       if (ball === aCor) {
@@ -35,11 +35,10 @@ function clicarCorCerta() {
         resposta.innerHTML = 'Errou! Tente novamente!';
       }
       if (resposta.innerHTML === 'Acertou!') {
-          contador += 3;
-          score.innerHTML = contador;
-          localStorage.setItem('placar', contador);
-    }
-
+        contador += 3;
+        score.innerHTML = contador;
+        localStorage.setItem('placar', contador);
+      }
     });
   }
   window.onload = function () {
@@ -52,9 +51,9 @@ function botaoReseta() {
   botaoReset.addEventListener('click', function () {
     document.location.reload();
   });
-  if (localStorage.length !== 0){
+  if (localStorage.length !== 0) {
     score.innerHTML = localStorage.getItem('placar');
-    contador = parseInt(localStorage.getItem('placar'))
+    contador = parseInt(localStorage.getItem('placar'));
   } else {
     score.innerHTML = 0;
   }
