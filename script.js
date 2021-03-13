@@ -65,10 +65,10 @@ function resetGame() {
 }
 
 function totalScore() {
-  getBallsDiv.addEventListener('click', () => {
-    if (getP.innerText === 'Acertou!') {
+  getBallsDiv.addEventListener('click', (event) => {
+    if (event.target.id === 'rightColor') {
       scoreCounter += 3;
-      goals.innerText = `${scoreCounter}`;
+      goals.innerText = scoreCounter;
     }
   });
 }
