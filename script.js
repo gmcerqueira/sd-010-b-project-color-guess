@@ -2,7 +2,8 @@ const adivinha = document.querySelector('#rgb-color');
 const balls = document.querySelectorAll('.ball');
 const resposta = document.querySelector('#answer');
 const gameReset = document.querySelector('#reset-game');
-const score = document.querySelector('#score');
+const textScore = document.getElementById('score');
+let score = 0;
 
 function geraPaleta() {
   const indexColor = (Math.floor(Math.random() * 6));
@@ -17,25 +18,24 @@ function geraPaleta() {
       balls[index].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     }
   }
-};
+}
 geraPaleta();
 
-chosenBall = document.getElementById('color-palette');
+const chosenBall = document.getElementById('color-palette');
 chosenBall.addEventListener('click', function (event) {
   const selectedBall = event.target;
   const selectedColor = selectedBall.style.backgroundColor;
   const colorBall = `rgb${adivinha.innerText}`;
   if (selectedColor === colorBall) {
     resposta.innerText = 'Acertou!';
-    incrementaPlacar();
+    score += 3;
+    textScore.innerText = score;
   } else {
     resposta.innerText = 'Errou! Tente novamente!';
-  }
-});
+  };
+})
 
-function incrementaPlacar() {
-  const placar = score.innerText + 3;
-  score.innerText = placar;
-};
-
-
+gameReset.addEventListener('click', function () {
+  geraPaleta();
+  resposta.innerText = 'Escolha uma cor';
+})
