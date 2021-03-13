@@ -9,6 +9,14 @@ function generateRGB() {
   rgbNumber = `(${randomNumber[0]},${randomNumber[1]},${randomNumber[2]})`;
 }
 
+function createBalls() {
+  const getBallsDiv = document.getElementById('circle-container');
+  for (let x = 0; x < 6; x += 1) {
+    getBallsDiv.appendChild(document.createElement('div'));
+    getBallsDiv.lastChild.className = 'ball';
+  }
+}
+
 function colorCircles() {
   for (let x = 0; x < balls.length; x += 1) {
     generateRGB();
@@ -44,6 +52,7 @@ function gameStart() {
 }
 
 window.onload = function loadPage() {
+  createBalls();
   colorCircles();
   chooseRandomCircle();
   getRgbNumber();
