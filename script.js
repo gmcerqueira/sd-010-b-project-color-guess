@@ -7,7 +7,24 @@ const score = document.getElementById('score');
 const btnReset = document.getElementById('reset-game');
 let count = 0;
 
+const generateColors = () => {
+  const cores = [];
+  for (let i = 0; i < colors.length; i += 1) {
+    const [firstColor, secondColor, thirdColor] = [
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256),
+    ];
 
+    const cor = `rgb(${firstColor}, ${secondColor}, ${thirdColor})`;
+    console.log(cor);
+    cores.push(cor);
+    colors[i].style.backgroundColor = cor;
+  }
+  chooseColor(cores);
+};
+
+generateColors();
 
 const countScore = () => {
   count += 3;
