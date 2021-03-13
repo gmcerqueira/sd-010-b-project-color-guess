@@ -37,6 +37,14 @@ function generateWrongBalls() {
 
 generateWrongBalls();
 
+function resetGame() {
+  generateGuessRGB();
+  generateCorrectBall();
+  generateWrongBalls();
+  const result = document.getElementById('answer');
+  result.innerText = 'Escolha uma cor';
+}
+
 document.getElementById('colors-guess').addEventListener('click', (event) => {
   const clickedBall = event.target;
   const chosenColor = clickedBall.style.background;
@@ -47,3 +55,5 @@ document.getElementById('colors-guess').addEventListener('click', (event) => {
     result.innerText = 'Errou! Tente novamente!';
   }
 });
+
+document.getElementById('reset-game').addEventListener('click', resetGame);

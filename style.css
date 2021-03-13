@@ -3,15 +3,21 @@ header {
   text-align: center;
 }
 
+button {
+  align-self: center;
+  margin: auto;
+}
+
 #colors-guess {
   display: block;
   margin: auto;
   width: 416px;
 }
 
-#answer {
+#output , #button {
   display: block;
-  text-align: center;
+  margin: auto;
+  width: fit-content;
 }
 
 .ball {
