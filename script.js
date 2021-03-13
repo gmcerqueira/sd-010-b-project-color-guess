@@ -39,14 +39,15 @@ function getRgbNumber() {
 }
 
 function gameStart() {
-  alert('Escolha uma cor');
+  const getH2 = document.querySelector('h2');
+  getH2.innerText = 'Escolha uma cor';
   document.getElementById('circle-container').addEventListener('click', (event) => {
     const eventTargetColor = event.target.style.backgroundColor;
     const answerColor = document.getElementById('answer').style.backgroundColor;
     if (eventTargetColor === answerColor) {
-      alert('Acertou!');
+      getH2.innerText = 'Acertou!';
     } else {
-      alert('Errou! Tente novamente!');
+      getH2.innerText = 'Errou! Tente novamente!';
     }
   });
 }
