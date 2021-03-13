@@ -7,6 +7,23 @@ const score = document.getElementById('score');
 const btnReset = document.getElementById('reset-game');
 let count = 0;
 
+window.onload = () => {
+  const points = localStorage.getItem('score');
+  const counter = localStorage.getItem('counter');
+  if (counter) count = Number(counter);
+  if (points) {
+    score.innerText = points;
+  } else {
+    score.innerText = count;
+  }
+};
+
+const chooseColor = (cores) => {
+  const index = Math.floor(Math.random() * cores.length);
+
+  colorName.innerText = cores[index];
+};
+
 const generateColors = () => {
   const cores = [];
   for (let i = 0; i < colors.length; i += 1) {
