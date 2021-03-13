@@ -1,34 +1,45 @@
 const rgbCode = document.getElementById('rgb-color')
 const balls = document.querySelectorAll('.ball')
+const answer = document.getElementById('answer')
 
 function rgbColor() {
     let red = Math.floor(Math.random()*256)
     let green = Math.floor(Math.random()*256)
     let blue = Math.floor(Math.random()*256)
     rgbCode.innerHTML = '('+red+','+green+','+blue+')'
-    balls[0].style.backgroundColor = 'rgb('+red+','+green+','+blue+')'
-    balls[0].addEventListener('click', function () {
-        document.getElementById('answer').innerHTML = 'Acertou!'
+    let pos = [0,1,2,3,4,5]
+    pos = shuffle(pos)
+    balls[pos[0]].style.backgroundColor = 'rgb('+red+','+green+','+blue+')'
+    balls[pos[0]].addEventListener('click', function () {
+        answer.innerHTML = 'Acertou!'
     })
-    balls[1].style.backgroundColor = 'rgb('+green+','+blue+','+red+')'
-    balls[1].addEventListener('click', function () {
-        document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
+    balls[pos[1]].style.backgroundColor = 'rgb('+green+','+blue+','+red+')'
+    balls[pos[1]].addEventListener('click', function () {
+        answer.innerHTML = 'Errou! Tente novamente!'
     })
-    balls[2].style.backgroundColor = 'rgb('+blue+','+red+','+green+')'
-    balls[2].addEventListener('click', function () {
-        document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
+    balls[pos[2]].style.backgroundColor = 'rgb('+blue+','+red+','+green+')'
+    balls[pos[2]].addEventListener('click', function () {
+        answer.innerHTML = 'Errou! Tente novamente!'
     })
-    balls[3].style.backgroundColor = 'rgb('+red+','+blue+','+green+')'
-    balls[3].addEventListener('click', function () {
-        document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
+    balls[pos[3]].style.backgroundColor = 'rgb('+red+','+blue+','+green+')'
+    balls[pos[3]].addEventListener('click', function () {
+        answer.innerHTML = 'Errou! Tente novamente!'
     })
-    balls[4].style.backgroundColor = 'rgb('+green+','+red+','+blue+')'
-    balls[4].addEventListener('click', function () {
-        document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
+    balls[pos[4]].style.backgroundColor = 'rgb('+green+','+red+','+blue+')'
+    balls[pos[4]].addEventListener('click', function () {
+        answer.innerHTML = 'Errou! Tente novamente!'
     })
-    balls[5].style.backgroundColor = 'rgb('+blue+','+green+','+red+')'
-    balls[5].addEventListener('click', function () {
-        document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
+    balls[pos[5]].style.backgroundColor = 'rgb('+blue+','+green+','+red+')'
+    balls[pos[5]].addEventListener('click', function () {
+        answer.innerHTML = 'Errou! Tente novamente!'
     })
+    shuffle(balls)
+    answer.innerHTML = 'Escolha uma cor'
+
 }
 rgbColor()
+
+function shuffle(o) {
+    for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+  }
