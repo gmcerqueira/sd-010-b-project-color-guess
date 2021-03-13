@@ -1,6 +1,7 @@
 const balls = document.getElementsByClassName('ball');
 const getP = document.querySelector('#answer');
 const getButton = document.querySelector('button');
+const getBallsDiv = document.getElementById('circle-container');
 let rgbNumber = '';
 
 function generateRGB() {
@@ -12,7 +13,6 @@ function generateRGB() {
 }
 
 function createBalls() {
-  const getBallsDiv = document.getElementById('circle-container');
   for (let x = 0; x < 6; x += 1) {
     getBallsDiv.appendChild(document.createElement('div'));
     getBallsDiv.lastChild.className = 'ball';
@@ -41,7 +41,7 @@ function getRgbNumber() {
 }
 
 function correctOrNot() {
-  document.getElementById('circle-container').addEventListener('click', (event) => {
+  getBallsDiv.addEventListener('click', (event) => {
     const eventTargetColor = event.target.style.backgroundColor;
     const rightColor = document.getElementById('rightColor').style.backgroundColor;
     if (eventTargetColor === rightColor) {
@@ -57,8 +57,20 @@ function resetGame() {
     colorCircles();
     getRgbNumber();
     document.getElementById('rightColor').id = '';
-    document.querySelector('#answer').innerText = 'Escolha uma cor'
+    getP.innerText = 'Escolha uma cor';
     chooseRandomCircle();
+  });
+}
+
+function totalScore() {
+  const goals = document.getElementById('score');
+  let scoreCounter = 0;
+  goals.innerText = `pontos: ${scoreCounter}`;
+  getBallsDiv.addEventListener('click', () => {
+    if (getP.innerText === 'Acertou!') {
+      scoreCounter += 3;
+      goals.innerText = `pontos: ${scoreCounter}`;
+    }
   });
 }
 
@@ -69,4 +81,5 @@ window.onload = function loadPage() {
   chooseRandomCircle();
   getRgbNumber();
   correctOrNot();
+  totalScore();
 };
