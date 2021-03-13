@@ -5,3 +5,11 @@
     border-radius: 50%;
     display: inline-block;
 }
+
+body {
+    text-align: center;
+}
+
+header  {
+    font-size: xxx-large;
+}
