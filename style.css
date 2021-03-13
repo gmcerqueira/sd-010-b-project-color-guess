@@ -9,6 +9,11 @@ header {
   width: 416px;
 }
 
+#answer {
+  display: block;
+  text-align: center;
+}
+
 .ball {
   border: 3px solid black;
   margin: auto;

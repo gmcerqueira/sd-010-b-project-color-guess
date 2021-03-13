@@ -1,4 +1,5 @@
 let ballNumber = '';
+let correctValue = '';
 
 function generateNumber() {
   const number = Math.ceil(Math.random() * 255);
@@ -16,9 +17,9 @@ function generateCorrectBall() {
   ballNumber = Math.ceil(Math.random() * 6);
   const ball = `ball${ballNumber}`;
   const correctBall = document.getElementById(ball);
-  let value = document.getElementById('rgb-color').innerText;
-  value = `rgb${value}`;
-  correctBall.style.background = value;
+  correctValue = document.getElementById('rgb-color').innerText;
+  correctValue = `rgb${correctValue}`;
+  correctBall.style.background = correctValue;
 }
 
 generateCorrectBall();
@@ -35,3 +36,14 @@ function generateWrongBalls() {
 }
 
 generateWrongBalls();
+
+document.getElementById('colors-guess').addEventListener('click', (event) => {
+  const clickedBall = event.target;
+  const chosenColor = clickedBall.style.background;
+  const result = document.getElementById('answer');
+  if (chosenColor === correctValue) {
+    result.innerText = 'Acertou!';
+  } else {
+    result.innerText = 'Errou! Tente novamente!';
+  }
+});
