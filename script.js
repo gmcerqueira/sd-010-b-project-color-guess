@@ -2,7 +2,9 @@ const balls = document.getElementsByClassName('ball');
 const getP = document.querySelector('#answer');
 const getButton = document.querySelector('button');
 const getBallsDiv = document.getElementById('circle-container');
+const goals = document.getElementById('score');
 let rgbNumber = '';
+let scoreCounter = 0;
 
 function generateRGB() {
   const randomNumber = [];
@@ -63,13 +65,10 @@ function resetGame() {
 }
 
 function totalScore() {
-  const goals = document.getElementById('score');
-  let scoreCounter = 0;
-  goals.innerText = `pontos: ${scoreCounter}`;
   getBallsDiv.addEventListener('click', () => {
     if (getP.innerText === 'Acertou!') {
       scoreCounter += 3;
-      goals.innerText = `pontos: ${scoreCounter}`;
+      goals.innerText = `${scoreCounter}`;
     }
   });
 }
