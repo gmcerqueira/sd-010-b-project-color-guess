@@ -25,31 +25,27 @@ function surprise() {
   const balls = document.querySelectorAll('.ball');
   for (let index = 0; index < numbers; index += 1) {
     array.push(balls[index]);
-    console.log(array[index]);
   }
   let sortNumber = array[Math.floor(Math.random() * (numbers))];
   sortNumber = sortNumber.style.backgroundColor;
   colorSurprise.innerHTML = sortNumber.replace('rgb', '');
 }
 surprise();
+
 let points = 0;
-const gameScore = document.querySelector('#score');
-
-function score() {
-  gameScore.innerHTML = ` ${points}`;
-}
-score();
-
+const score = document.querySelector('#score');
 
 const answer = document.querySelector('#answer');
+score.innerHTML = `Placar: ${points}`;
 divColors.addEventListener('click', (event) => {
   const choseColor = event.target;
   if (choseColor.style.backgroundColor === `rgb${colorSurprise.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
     points += 3;
-    score();
+    score.innerHTML = `Placar: ${points}`;
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
+    score.innerHTML = `Placar: ${points}`;
   }
 });
 
@@ -61,5 +57,6 @@ resetGame.addEventListener('click', () => {
     divColors.firstChild.remove();
   }
   makeColors(numbers);
+  surprise();
   answer.innerHTML = 'Escolha uma cor';
 });
