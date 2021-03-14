@@ -8,3 +8,8 @@
   height: 50px;
   border-radius: 100%;
 }
+
+button {
+  width: 200px;
+  height: 200px;
+}

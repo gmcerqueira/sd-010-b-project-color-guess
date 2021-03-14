@@ -32,13 +32,23 @@ function surprise() {
   colorSurprise.innerHTML = sortNumber.replace('rgb', '');
 }
 surprise();
-
+const answer = document.querySelector('#answer');
 divColors.addEventListener('click', (event) => {
-  const answer = document.querySelector('#answer');
   const choseColor = event.target;
   if (choseColor.style.backgroundColor === `rgb${colorSurprise.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
+});
+
+const resetGame = document.querySelector('#reset-game');
+const balls = document.querySelectorAll('.ball');
+resetGame.addEventListener('click', () => {
+  surprise();
+  for (let index = 0; index < balls.length; index += 1) {
+    divColors.firstChild.remove();
+  }
+  makeColors(numbers);
+  answer.innerHTML = 'Escolha uma cor';
 });
