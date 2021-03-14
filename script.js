@@ -40,6 +40,6 @@ divColors.addEventListener('click', (event) => {
   if (choseColor.style.backgroundColor === `rgb${colorSurprise.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
   } else {
-    answer.innerHTML = 'Errou!!';
+    answer.innerHTML = 'Errou! Tente novamente!';
   }
 });
