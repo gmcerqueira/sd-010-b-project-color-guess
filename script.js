@@ -52,7 +52,6 @@ divColors.addEventListener('click', (event) => {
 const resetGame = document.querySelector('#reset-game');
 const balls = document.querySelectorAll('.ball');
 resetGame.addEventListener('click', () => {
-  surprise();
   for (let index = 0; index < balls.length; index += 1) {
     divColors.firstChild.remove();
   }
