@@ -32,11 +32,22 @@ function surprise() {
   colorSurprise.innerHTML = sortNumber.replace('rgb', '');
 }
 surprise();
+let points = 0;
+const gameScore = document.querySelector('#score');
+
+function score() {
+  gameScore.innerHTML = ` ${points}`;
+}
+score();
+
+
 const answer = document.querySelector('#answer');
 divColors.addEventListener('click', (event) => {
   const choseColor = event.target;
   if (choseColor.style.backgroundColor === `rgb${colorSurprise.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
+    points += 3;
+    score();
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
