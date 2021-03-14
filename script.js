@@ -25,16 +25,15 @@ function surprise() {
   const balls = document.querySelectorAll('.ball');
   for (let index = 0; index < numbers; index += 1) {
     array.push(balls[index]);
+    console.log(array[index]);
   }
-  const sortNumber = array[Math.floor(Math.random() * numbers + 1)];
-  const bgColorSortNumber = sortNumber.style.backgroundColor;
-  console.log(bgColorSortNumber);
-  colorSurprise.innerHTML = bgColorSortNumber.replace('rgb', '');
+  let sortNumber = array[Math.floor(Math.random() * (numbers))];
+  sortNumber = sortNumber.style.backgroundColor;
+  colorSurprise.innerHTML = sortNumber.replace('rgb', '');
 }
 surprise();
 
 divColors.addEventListener('click', (event) => {
-
   const answer = document.querySelector('#answer');
   const choseColor = event.target;
   if (choseColor.style.backgroundColor === `rgb${colorSurprise.innerHTML}`) {
