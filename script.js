@@ -1,6 +1,8 @@
 const rgbCode = document.getElementById('rgb-color')
 const balls = document.querySelectorAll('.ball')
 const answer = document.getElementById('answer')
+var placar = 0;
+const score = document.getElementById('score')
 
 function rgbColor() {
     let red = Math.floor(Math.random()*256)
@@ -12,6 +14,9 @@ function rgbColor() {
     balls[pos[0]].style.backgroundColor = 'rgb('+red+','+green+','+blue+')'
     balls[pos[0]].addEventListener('click', function () {
         answer.innerHTML = 'Acertou!'
+        // alert(pos[0])
+        placar += 3;
+        score.innerHTML = placar
     })
     balls[pos[1]].style.backgroundColor = 'rgb('+green+','+blue+','+red+')'
     balls[pos[1]].addEventListener('click', function () {
@@ -35,7 +40,7 @@ function rgbColor() {
     })
     shuffle(balls)
     answer.innerHTML = 'Escolha uma cor'
-
+    // score.innerHTML = placar
 }
 rgbColor()
 
