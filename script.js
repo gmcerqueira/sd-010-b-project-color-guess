@@ -43,6 +43,7 @@ verifyCorrectColor();
 function resetGame() {
   resetButton.addEventListener('click', () => {
     generateRandomColorsBalls();
+    spanAnswer.innerHTML = 'Escolha uma cor';
   });
 }
 resetGame();
