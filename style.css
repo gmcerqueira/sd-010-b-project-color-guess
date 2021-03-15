@@ -1,13 +1,27 @@
 #title {
-  margin: 25px 0;
+  margin: 40px 0;
   text-align: center;
 }
 
 .rgb-section {
-  margin: 40px 0;
+  margin: 50px 0;
   text-align: center;
 }
 
 #rgb-color {
   font-size: 20px;
+}
+
+.balls-section {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.ball {
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+  height: 80px;
+  width: 80px;
 }
