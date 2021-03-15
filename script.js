@@ -1,20 +1,43 @@
 const rgbRandom = document.getElementById('rgb-color');
 const backgroundColorBalls = document.getElementsByClassName('ball');
-
-function generateRandomColor() {
-  const color1 = parseInt(Math.random() * 255, 0);
-  const color2 = parseInt(Math.random() * 255, 0);
-  const color3 = parseInt(Math.random() * 255, 0);
-
-  rgbRandom.innerHTML = `(${color1}, ${color2}, ${color3})`;
-}
-generateRandomColor();
+const spanAnswer = document.getElementById('answer');
+const balssSection = document.querySelector('.balls-section');
+const resetButton = document.getElementById('reset-game');
 
 function generateRandomColorsBalls() {
-  for (let index = 0; index < backgroundColorBalls.length; index += 1) {
-    backgroundColorBalls[index].style.backgroundColor = `rgb(${parseInt(Math.random() * 255, 0)}, 
-    ${parseInt(Math.random() * 255, 0)}, 
-    ${parseInt(Math.random() * 255, 0)})`;
+  const randomBall = Math.floor(Math.random() * 6, 0);
+  for (let index = 0; index < 6; index += 1) {
+    const color1 = parseInt(Math.random() * 255, 0);
+    const color2 = parseInt(Math.random() * 255, 0);
+    const color3 = parseInt(Math.random() * 255, 0);
+    if (randomBall === index) {
+      rgbRandom.innerHTML = `rgb(${color1}, ${color2}, ${color3})`;
+      backgroundColorBalls[index].style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+    } else {
+      backgroundColorBalls[index].style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+    }
   }
 }
 generateRandomColorsBalls();
+
+window.onload = function printAnswer() {
+  spanAnswer.innerHTML = 'Escolha uma cor';
+};
+
+function verifyCorrectColor() {
+  balssSection.addEventListener('click', (event) => {
+    if (event.target.style.backgroundColor === rgbRandom.innerHTML) {
+      spanAnswer.innerHTML = 'Acertou!';
+    } else {
+      spanAnswer.innerHTML = 'Errou! Tente novamente!';
+    }
+  });
+}
+verifyCorrectColor();
+
+function resetGame() {
+  resetButton.addEventListener('click', () => {
+    window.location.reload();
+  });
+}
+resetGame();
