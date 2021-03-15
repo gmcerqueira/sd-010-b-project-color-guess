@@ -3,6 +3,7 @@ const backgroundColorBalls = document.getElementsByClassName('ball');
 const spanAnswer = document.getElementById('answer');
 const balssSection = document.querySelector('.balls-section');
 const resetButton = document.getElementById('reset-game');
+const spanScore = document.getElementById('score');
 
 function generateRandomColorsBalls() {
   const randomBall = Math.floor(Math.random() * 6, 0);
@@ -25,9 +26,13 @@ window.onload = function printAnswer() {
 };
 
 function verifyCorrectColor() {
+  spanScore.innerHTML = 0;
+  let score = 0;
   balssSection.addEventListener('click', (event) => {
     if (event.target.style.backgroundColor === rgbRandom.innerHTML) {
       spanAnswer.innerHTML = 'Acertou!';
+      score += 3;
+      spanScore.innerHTML = score;
     } else {
       spanAnswer.innerHTML = 'Errou! Tente novamente!';
     }
@@ -37,7 +42,7 @@ verifyCorrectColor();
 
 function resetGame() {
   resetButton.addEventListener('click', () => {
-    window.location.reload();
+    generateRandomColorsBalls();
   });
 }
 resetGame();

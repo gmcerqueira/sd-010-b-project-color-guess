@@ -39,3 +39,12 @@
   margin: 25px 0;
   text-align: center;
 }
+
+#reset-game {
+  padding: 5px;
+}
+
+.rgb-section p {
+  font-weight: 600;
+  font-size: 20px;
+}
