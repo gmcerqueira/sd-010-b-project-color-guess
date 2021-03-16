@@ -25,15 +25,10 @@ section {
 
 .ball {
   display: inline-block;
-  border-radius:  50%;
+  border-radius: 50%;
   margin: 5px;
   width: 120px;
   height: 120px;
   background-color: black;
 
-}
-
-#teste {
-  height: 20px;
-  background-color: black;
 }
