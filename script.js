@@ -11,8 +11,8 @@ function genColors() {
   for (let i = 0; i < balls.length; i += 1) {
     balls[i].style.backgroundColor = randomRGB();
   }
-  const colorToGuess = balls[Math.floor(Math.random() * 6)].style.backgroundColor;
-  document.getElementById('rgb-color').innerText = colorToGuess
+  const colorToGuess = balls[Math.floor(Math.random() * balls.length)].style.backgroundColor;
+  document.getElementById('rgb-color').innerText = colorToGuess;
 }
 genColors();
 
@@ -25,3 +25,8 @@ document.addEventListener('click', (event) => {
     }
   }
 });
+
+document. getElementById('reset-game').onclick = function () {
+  genColors();
+  document.getElementById('answer').innerText = 'Escolha uma cor!'
+}
