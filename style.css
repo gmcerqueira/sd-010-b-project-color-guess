@@ -37,6 +37,13 @@ section {
   cursor: pointer;
 }
 
-#reset-game {
+.aesq,
+.adir {
+  display: inline-block;
   margin-top: 50px;
+  width: 50%;
+}
+
+#reset-game {
+  padding: 5px;
 }
